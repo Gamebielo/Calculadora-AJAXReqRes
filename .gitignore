@@ -1,0 +1,17 @@
+#ignored folders
+build/
+build
+bin
+bin/
+.gradle/
+.gradle
+.nb-gradle/
+.nb-gradle
+.settings/
+.settings
+
+#ignored extensions
+.exe
+.bin
+.class
+/bin/
