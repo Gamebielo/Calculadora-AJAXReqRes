@@ -1,0 +1,71 @@
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.principal {
+  text-align: left;
+  width: 500px;
+  margin: 0 auto;
+}
+
+h2.title {
+  font-size: 40px;
+  border-bottom: 6px solid #4caf50;;
+  margin-top: 20%;
+  color: white;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.time {
+  color: white;
+}
+
+.card {
+  min-width: 500px;
+  max-width: 5000px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 #276629;
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+  overflow:auto;
+  margin-top: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 #4caf50;
+}
+
+.container {
+  display: inline-block;
+}
+
+h4{
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+/* Gabriel Carvalho - Copyright*/
+p.copy {
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none; /* Retirar o sublinhado do link */
+  color: white;
+}

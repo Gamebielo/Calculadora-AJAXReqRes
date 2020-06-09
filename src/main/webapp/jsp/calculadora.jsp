@@ -8,7 +8,8 @@
         <title>Calculadora</title>
     </head>
     <body>
-        <form name="calculator" action="calculadora" method="post">
+        <h2 class="title">Web Calculadora</h2>
+        <div>
             <table>
                 <tr>
                     <td colspan="4">
@@ -41,6 +42,13 @@
                 
                 </tr>
             </table>
+        </div>
+
+        <form name="calculator" action="calculadora" method="post">
+            <p class="copy">
+                <a href="http://www.github.com/gamebielo">&copy; Gabriel Carvalho</a>
+            </p>
+            <button type="submit" value="Historico">Ir para histórico</button>
         </form>
     </body>
 </html>

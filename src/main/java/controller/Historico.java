@@ -11,13 +11,13 @@ import javax.servlet.http.HttpSession;
  * @author gamebielo
  */
 
-@WebServlet(name = "Calculadora", urlPatterns={"/calculadora"})
-public class Calculadora extends HttpServlet{
+@WebServlet(name = "Historico", urlPatterns={"/historico"})
+public class Historico extends HttpServlet{
     
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res){
     	try{
-            req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
+            req.getRequestDispatcher("/jsp/historico.jsp").forward(req, res);
         } catch(Exception e){
             System.out.println("Erro");
         }
@@ -25,11 +25,6 @@ public class Calculadora extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
-        try{
-            //req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
-            res.sendRedirect(req.getContextPath() + "/historico");
-        } catch(Exception e){
-            System.out.println("Erro");
-        }
+        //
     }
 }
