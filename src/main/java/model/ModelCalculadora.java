@@ -20,10 +20,19 @@ public class ModelCalculadora { //persistence class
     @Column(name="conta_efetuada")
     private  String contaEfetuada;       //persistence attribute
 
+    @Column(name="horario_efetuado")
+    private  String horarioEfetuado;       //persistence attribute
+
     public ModelCalculadora(){}          //zero parameter constructor
 
     // GETTERS & SETTERS
 
+    public String getHorarioEfetuado() {   
+        return horarioEfetuado;
+    }
+    public void setHorarioEfetuado(String horarioEfetuado) {
+        this.horarioEfetuado = horarioEfetuado;
+    }
     public String getContaEfetuada() {   
         return contaEfetuada;
     }
@@ -35,5 +44,5 @@ public class ModelCalculadora { //persistence class
     }
     public void setId(long id) {
         this.id = id;
-    }  
+    }
 }

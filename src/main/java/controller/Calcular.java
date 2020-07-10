@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -42,8 +45,15 @@ public class Calcular extends HttpServlet{
             } else if (operacao.equals("*")){
                 resultado = n1 * n2;
             } else if (operacao.equals("/")){
+                if (n2 == 0){
+                    System.out.println("Erro ao dividir");
+                    resultado = 0.0;
+                }
                 resultado = n1 / n2;
             }
+
+            Date d = new Date();
+            String dStr = DateFormat.getDateTimeInstance().format(d);
 
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia_simples");        
             EntityManager em = emf.createEntityManager();
@@ -51,6 +61,7 @@ public class Calcular extends HttpServlet{
             /* Criação de uma entidade - CREATE */        
             ModelCalculadora modelCalc = new ModelCalculadora();
             modelCalc.setContaEfetuada(svalorA+" "+operacao+" "+svalorB+" = "+resultado.toString());
+            modelCalc.setHorarioEfetuado(dStr);
             em.getTransaction().begin();
             em.persist(modelCalc);
             em.getTransaction().commit();

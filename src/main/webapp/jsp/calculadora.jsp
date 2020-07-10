@@ -51,6 +51,6 @@
         <p class="copy">
             <a href="http://www.github.com/gamebielo">&copy; Gabriel Carvalho</a>
         </p>
-        <button onclick="window.location.href = 'http://localhost:8080/Calc/historico';" value="Historico">Ir para histórico</button>
+        <button onclick="window.location.href = 'http://localhost:8080/Calc/historico';" value="historico">Ir para histórico</button>
     </body>
 </html>

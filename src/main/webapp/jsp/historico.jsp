@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List" %>
+<%@page import="model.ModelCalculadora" %>
+<%@page import="model.CalculadoraService" %>
 <!DOCTYPE html>
 
 <html>
@@ -10,6 +13,25 @@
     <body>
         <h2 class="title">Histórico</h2>
         <div class="principal">
+
+        <%
+			List<ModelCalculadora> users = (List<ModelCalculadora>) request.getAttribute("registros");
+            for(ModelCalculadora user: users){
+                //out.print("<li>" + user.getContaEfetuada() + "</li><br/>");
+                
+                out.print("<div class='card'>" +
+                    "<div class='container'>" +
+                        "<h4>" +
+                            "<b class='time'>" + user.getHorarioEfetuado() +"</b><br>" +
+                            "<b>Paulo Henrique</b>" +
+                        "</h4>" +
+                        "<p>"+ user.getContaEfetuada() +"</p>" +
+                    "</div>" +
+                "</div>");
+            } 		
+        %>
+
+        <!--
             <div class="card">
                 <div class="container">
                     <h4>
@@ -37,6 +59,7 @@
                     <p>2 + 2 = 4</p>
                 </div>
             </div>
+            -->
         </div>
 
         <p class="copy">

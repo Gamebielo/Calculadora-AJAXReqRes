@@ -9,8 +9,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <description> Exemplo simples de CRUD
                   com JPA - Hibernate 5</description>
     <!-- Provedor da implementação das especificações de interface do JPA -->
-    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> 
-    <class>model.ModelCalculadora</class> 
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>model.ModelCalculadora</class>
+    <class>model.ModelUsuario</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/projeto_calculadora" />
