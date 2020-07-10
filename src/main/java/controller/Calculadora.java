@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.lang.Math;
 
 /**
  * @author gamebielo
@@ -27,7 +28,7 @@ public class Calculadora extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
         try{
             //req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
-            res.sendRedirect(req.getContextPath() + "/historico");
+            //res.sendRedirect(req.getContextPath() + "/historico");
         } catch(Exception e){
             System.out.println("Erro");
         }
