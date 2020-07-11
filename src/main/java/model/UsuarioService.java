@@ -30,9 +30,9 @@ public class UsuarioService { //persistence class
             return calc;            
 	}
 
-    public Boolean login(String nome, String senha){
-        Query query = em.createQuery("FROM usuario u where nome_usuario=:nomeUsuario"); 
-        query.setParameter("nomeUsuario", nome);
+    public long login(String nome, String senha){
+        Query query = em.createQuery("FROM usuario u where login=:login"); 
+        query.setParameter("login", nome);
         List<ModelUsuario> usuarios = query.getResultList();
         if (usuarios.isEmpty()){
             System.out.println("Esta vazia!");
@@ -40,39 +40,34 @@ public class UsuarioService { //persistence class
         else{
             for(ModelUsuario ui: usuarios){
                 if (ui.getSenha().equals(senha)){
-                    System.out.println("encontrou");
-                    return true;
+                    return ui.getId();
                 }
                 else{
-                    return false;
+                    return 0;
                 }
             } 
         }
-        return false;
+        return 0;
     }
 
-    public static String md5(String input) {
-     
-    String md5 = null;
-     
-    if(null == input) return null;
-     
-    try {
-         
-    //Create MessageDigest object for MD5
-    MessageDigest digest = MessageDigest.getInstance("MD5");
-     
-    //Update input string in message digest
-    digest.update(input.getBytes(), 0, input.length());
-
-    //Converts message digest value in base 16 (hex) 
-    md5 = new BigInteger(1, digest.digest()).toString(16);
-
-    } catch (NoSuchAlgorithmException e) {
-
-        e.printStackTrace();
+    // Return the name (user)
+    public String username(long id){
+        Query query = em.createQuery("FROM usuario u where id=:id"); 
+        query.setParameter("id", id);
+        List<ModelUsuario> usuarios = query.getResultList();
+        if (usuarios.isEmpty()){
+            System.out.println("Esta vazia!");
+        }
+        else{
+            for(ModelUsuario ui: usuarios){
+                if (ui.getId() == id){
+                    return ui.getNomeUsuario();
+                }
+                else{
+                    return "";
+                }
+            } 
+        }
+        return "";
     }
-    return md5;
-}
-	
 }

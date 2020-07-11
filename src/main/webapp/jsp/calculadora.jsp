@@ -48,6 +48,9 @@
         </div>
         </form>
 
+
+        
+            <p class="msg">Não esqueça: sempre após uma conta clica no botão "C" para limpar a tela!<br></p>
         <p class="copy">
             <a href="http://www.github.com/gamebielo">&copy; Gabriel Carvalho</a>
         </p>

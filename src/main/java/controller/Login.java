@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.ModelUsuario;
+import model.UsuarioService;
+
 /**
  * @author gamebielo
  */
@@ -25,21 +28,23 @@ public class Login extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        username = username.toUpperCase();
-        
-        res.setContentType("text/html");
-        res.setCharacterEncoding("UTF-8");
-
-        //HttpSession session= req.getSession();   // Iniciando a session para armazenar algumas informações
-        //session.setAttribute("uname", username); // Armazenando o username
-        req.setAttribute("user_name", username);
         try{
-            //req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
-            res.sendRedirect(req.getContextPath() + "/calculadora");
+            UsuarioService us = new UsuarioService();
+            String username = req.getParameter("username");
+            String password = req.getParameter("password");
+
+            Long codUsuarioLogado = us.login(username, password);
+            String name_user = us.username(codUsuarioLogado);
+            if (codUsuarioLogado > 0){
+                    HttpSession session = req.getSession();  
+                    session.setAttribute("username", name_user);
+                    session.setAttribute("codUsuario", Long.toString(codUsuarioLogado));
+                    req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
+                }else{
+                    req.getRequestDispatcher("/jsp/login.jsp").forward(req, res);
+                }
         } catch(Exception e){
-            System.out.println("Erro");
+            System.out.println("Erro: " + e);
         }
         
     }

@@ -92,6 +92,7 @@ input:active {
   box-shadow: 0 4px rgba(0,0,0,0.2);
 }
 
+
 .operator {
   background-color: #4caf50;
   position: relative;
@@ -129,6 +130,13 @@ input:active {
   background-color: #F297A0;
   margin-bottom: 15px;
   box-shadow: none;
+}
+
+p.msg{
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-align: center;
 }
 
 /* Gabriel Carvalho - Copyright*/

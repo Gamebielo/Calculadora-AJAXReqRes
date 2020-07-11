@@ -23,6 +23,9 @@ public class ModelCalculadora { //persistence class
     @Column(name="horario_efetuado")
     private  String horarioEfetuado;       //persistence attribute
 
+    @Column(name="cod_usuario")
+    private  int codUsuario;
+
     public ModelCalculadora(){}          //zero parameter constructor
 
     // GETTERS & SETTERS
@@ -38,6 +41,12 @@ public class ModelCalculadora { //persistence class
     }
     public void setContaEfetuada(String contaEfetuada) {
         this.contaEfetuada = contaEfetuada;
+    }
+    public int getCodUsuario(){
+        return codUsuario;
+    }
+    public void setCodUsuario(int codUsuario){
+        this.codUsuario = codUsuario;
     }
     public long getId() {
         return id;

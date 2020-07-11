@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.lang.Math;
 
 /**
- * @author gamebielo
+ * @author Gamebielo
  */
 
 @WebServlet(name = "Calculadora", urlPatterns={"/calculadora"})
@@ -18,7 +18,13 @@ public class Calculadora extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res){
     	try{
-            req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
+            HttpSession session = req.getSession(false);
+
+            if((session != null) && ((String)session.getAttribute("username") != null)) {
+                req.getRequestDispatcher("/jsp/calculadora.jsp").forward(req, res);
+            } else{
+                res.sendRedirect(req.getContextPath() + "/login");
+            }
         } catch(Exception e){
             System.out.println("Erro");
         }

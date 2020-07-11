@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -52,6 +53,12 @@ public class Calcular extends HttpServlet{
                 resultado = n1 / n2;
             }
 
+            Integer codUsuario = 0;
+            HttpSession session = req.getSession(false);  
+            if((session!=null) && ((String)session.getAttribute("codUsuario") != null)){   
+                codUsuario = Integer.parseInt((String)session.getAttribute("codUsuario"));
+            }
+
             Date d = new Date();
             String dStr = DateFormat.getDateTimeInstance().format(d);
 
@@ -62,6 +69,7 @@ public class Calcular extends HttpServlet{
             ModelCalculadora modelCalc = new ModelCalculadora();
             modelCalc.setContaEfetuada(svalorA+" "+operacao+" "+svalorB+" = "+resultado.toString());
             modelCalc.setHorarioEfetuado(dStr);
+            modelCalc.setCodUsuario(codUsuario);
             em.getTransaction().begin();
             em.persist(modelCalc);
             em.getTransaction().commit();
@@ -69,7 +77,6 @@ public class Calcular extends HttpServlet{
         		
 		    res.setContentType("text/plain");
 		    res.getWriter().write(resultado.toString());
-            //res.getWriter().write(numero2);
         }
         catch(Exception e){
             System.out.println("Ocorreu o seguinte erro ao entrar: "+e);            

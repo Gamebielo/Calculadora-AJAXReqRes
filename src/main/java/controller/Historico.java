@@ -21,14 +21,23 @@ public class Historico extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res){
     	try{
+            Integer codUsuario = 0;
+            HttpSession session = req.getSession();
+
+            if((session != null) && ((String)session.getAttribute("codUsuario") != null)) {
+                codUsuario = Integer.parseInt((String)session.getAttribute("codUsuario"));
+                //req.getRequestDispatcher("/jsp/historico.jsp").forward(req, res);
+            } else{
+                res.sendRedirect(req.getContextPath() + "/login");
+            }
+
             CalculadoraService servCalc = new CalculadoraService();
-		    List<ModelCalculadora> registros = servCalc.list();		
+		    List<ModelCalculadora> registros = servCalc.list(codUsuario);
 
 		    req.setAttribute("registros", registros);
             req.getRequestDispatcher("/jsp/historico.jsp").forward(req, res);
-
         } catch(Exception e){
-            System.out.println("Erro");
+            System.out.println("Erro: " + e);
         }
     }
 
