@@ -1,4 +1,4 @@
-
+![GitHub followers](https://img.shields.io/github/followers/gamebielo?label=Gamebielo&style=social)
 # Calculadora
 
 Projeto da disciplina "Laboratório de Engenharia de Software", consiste em construir uma calculadora web na linguagem **JAVA** onde todas as contas devem ser feitas no *back-end*, que recebe via requisição **AJAX** os 2 operandos e a a operação a ser efetuada.
