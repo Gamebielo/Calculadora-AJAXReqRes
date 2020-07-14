@@ -43,11 +43,7 @@ function OP(operador){
     flagOp = true;
 }
 
-function calcular(){
-    console.log('n1: ' + numeroA);
-    console.log('Op: ' + operacao);
-    console.log('n2: ' + numeroB);
-    
+function calcular(foiChamado){
     $.ajax({
         url: 'calcular',
         type: "post",
