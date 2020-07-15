@@ -41,6 +41,14 @@ Dentro da pasta raiz da aplicação, abra o terminal.
 
     > gradle apprun
 Copie a url fornecida no terminal "http://localhost:8000/Calc", cole no seu navegador e navegue.
+A aplicação contém 2 usuários para teste:
+
+> User "Fulano Administrador"
+> login: admin
+> senha: admin
+User "Ciclano Admin"
+login: ciclano
+senha: ciclano123
 
 ## Estrutura
 Páginas JSP:
