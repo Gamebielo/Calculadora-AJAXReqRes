@@ -1,4 +1,5 @@
 
+
 ![GitHub followers](https://img.shields.io/github/followers/gamebielo?label=Gamebielo&style=social)
 
 # Calculadora
@@ -29,6 +30,7 @@ Abra um terminal dentro da pasta "bd" que contém o arquivo de banco de dados.
     > Mysql -u usuario_do_banco -p senha_do_usuario projeto_calculadora < projetoCalculadora.sql
     
 ## Instruções para rodar o app
+Vale ressaltar que o banco de dados precisa estar rodando e funcionando antes de rodar a calculadora, caso contrário, a aplicação não passará da tela de login.
 Dentro da pasta raiz da aplicação, abra o terminal.
 
 > Realizando o build da aplicação.
