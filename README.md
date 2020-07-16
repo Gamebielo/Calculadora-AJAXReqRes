@@ -21,13 +21,9 @@ O nome da sua database deve ser igual o nome configurado no arquivo "src/main/re
 ## Instruções para importar o banco de dados
 Abra um terminal dentro da pasta "bd" que contém o arquivo de banco de dados.
 
-> Criando o database com o mesmo nome definido no arquivo "persistense.xml"
+> Importando database criado, normalmente o usuario padrão e a senha dos bancos são "root", "root".
 
-    > create database projeto_calculadora;
-
-> Importando as tabelas para o database criado, normalmente o usuario padrão e a senha dos bancos são "root", "root".
-
-    > Mysql -u usuario_do_banco -p senha_do_usuario projeto_calculadora < projetoCalculadora.sql
+    > mysql -u databaseUser -p < projetoCalculadora.sql
     
 ## Instruções para rodar o app
 Vale ressaltar que o banco de dados precisa estar rodando e funcionando antes de rodar a calculadora, caso contrário, a aplicação não passará da tela de login.
